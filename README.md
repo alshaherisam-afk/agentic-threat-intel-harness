@@ -1,10 +1,15 @@
 # Agentic Threat Intel Harness
 
+[![CI](https://github.com/alshaherisam-afk/agentic-threat-intel-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/alshaherisam-afk/agentic-threat-intel-harness/actions/workflows/ci.yml)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
+[![Security: Bandit](https://img.shields.io/badge/security-Bandit-yellow.svg)](https://bandit.readthedocs.io/)
+
 A security-focused, asynchronous threat-intelligence harness for validating, sanitizing, and enriching Indicators of Compromise (IOCs).
 
 The system treats IOC context as untrusted input, detects common prompt-injection patterns, validates IPv4/IPv6 and SHA-256 indicators, and routes high-risk results to human approval.
 
-> **Security notice:** This project is a decision-support component. It must not be used as an autonomous threat verdict or response system without qualified analyst review, authenticated threat feeds, secure audit logging, and appropriate operational controls.
+> [!WARNING]
+> **Security Notice:** This project is a decision-support component. It must not be used as an autonomous threat verdict or response system without qualified analyst review, authenticated threat feeds, and appropriate operational controls.
 
 ## Architecture
 
@@ -110,7 +115,7 @@ source .venv/bin/activate
 
 On Windows PowerShell:
 
-```powershell
+```ps1
 .venv\Scripts\Activate.ps1
 ```
 
