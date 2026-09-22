@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agentic-threat-intel-harness
+  labels:
+    app: agentic-threat-intel-harness
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agentic-threat-intel-harness
+  template:
+    metadata:
+      labels:
+        app: agentic-threat-intel-harness
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: agentic-threat-intel-harness
+          image: agentic-threat-intel-harness:latest
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
